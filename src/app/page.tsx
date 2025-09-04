@@ -9,8 +9,8 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import CardComponent from "@/components/CardComponent";
 import cards from "@/json/cards.json";
-// import GoogleReviewsWidget from "google-reviews-widget"
-import { ElfsightWidget } from 'react-elfsight-widget';
+import GoogleReviewsWidget from "google-reviews-widget"
+// import { ElfsightWidget } from 'react-elfsight-widget';
 
 
 const content = [
@@ -151,7 +151,7 @@ export default function Home() {
           Immersioni
         </h1>
 
-        <h2 className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-chart-5 dark:text-white lg:text-justify w-[70%]">
+        <h2 className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-chart-5 dark:text-primary lg:text-justify w-[70%]">
           Esplora i fondali della Maremma con le nostre immersioni guidate
         </h2>
         <div className="w-[15em] h-1 bg-primary rounded-lg mx-8 mb-4" />
@@ -184,9 +184,9 @@ export default function Home() {
 
       </div >
 
-      <div className="w-full h-[30em] flex justify-center items-center bg-gradient-to-b from-white/10 to-white/5 text-primary dark:text-white ">
-        {/* <GoogleReviewsWidget instanceId='Nf4D0jlyznfSfyExFWnr' /> */}
-        <ElfsightWidget widgetId='2884fdd2-ef2d-4d07-b570-073041fad233' lazy />
+      <div className="w-full h-[30em] flex justify-center items-center text-black">
+        <GoogleReviewsWidget instanceId='Nf4D0jlyznfSfyExFWnr' />
+        {/* <ElfsightWidget widgetId='2884fdd2-ef2d-4d07-b570-073041fad233' lazy /> */}
       </div>
 
       <Banner

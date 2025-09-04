@@ -23,21 +23,23 @@ export default function Banner({ title, subtitle, source, button1, link1, text1,
                 <p className="text-lg w-[70%] m-auto font-light leading-relaxed">
                     {subtitle}
                 </p>
-                {button1 && link1 &&
-                    <Button variant={"default"} className="mt-4 p-8" asChild>
-                        <Link href={link1}>
-                            {text1 ? text1 : "Scopri di più"}
-                        </Link>
-                    </Button>
-                }
-                {
-                    button2 && link2 &&
-                    <Button variant={"outline"} className="mt-4 p-8 ml-4" asChild>
-                        <Link href={link2}>
-                            {text2 ? text2 : "Contattaci"}
-                        </Link>
-                    </Button>
-                }
+                <div className='flex flex-row items-center justify-center gap-4'>
+                    {button1 && link1 &&
+                        <Button variant={"default"} className="mt-4 p-6 rounded-lg" asChild>
+                            <Link href={link1}>
+                                {text1 ? text1 : "Scopri di più"}
+                            </Link>
+                        </Button>
+                    }
+                    {
+                        button2 && link2 &&
+                        <Button variant={"outline"} className="mt-4 p-6 rounded-lg" asChild>
+                            <Link href={link2}>
+                                {text2 ? text2 : "Contattaci"}
+                            </Link>
+                        </Button>
+                    }
+                </div>
             </div>
             <div className='absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/70 z-10' />
             {social &&

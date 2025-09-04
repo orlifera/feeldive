@@ -1,13 +1,23 @@
 import { Facebook, Instagram } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Footer() {
     return (
-        <div className="bg-gradient-to-b from-white/10 to-white/5 w-full md:grid md:grid-cols-3 md:p-4 text-primary dark:text-white justify-evenly">
+        <footer className="bg-gradient-to-b from-white/10 to-white/5 w-full lg:grid lg:grid-cols-3 lg:p-4 text-primary dark:text-white justify-evenly">
 
-            <div className="mx-auto w-full  flex flex-col text-center border-r-1 py-2">
-                <h2 className="font-bold text-lg">FeelDive Diving Center</h2>
+            <div className="mx-auto w-full  flex flex-col p-8 text-left lg:text-center border-r-1">
+                <div>
+                    <Image
+                        src="/logo.png"
+                        alt="FeelDive Logo"
+                        width={150}
+                        height={50}
+                    />
+                    <h2 className="font-bold text-lg">FeelDive Diving Center</h2>
+                </div>
+
                 <ul className="flex flex-col gap-2">
                     <li>
                         <span className="font-bold">Sede:</span> Lungomare Garibaldi, Scarlino (GR)
@@ -37,7 +47,7 @@ export default function Footer() {
 
                 </div>
             </div>
-            <div className="mx-auto w-full  flex flex-col text-center border-r-1 py-2">
+            <div className="mx-auto w-full  flex flex-col p-8 text-left lg:text-center border-r-1">
                 <h2 className="font-bold text-lg">Menu</h2>
                 <ul className="flex flex-col gap-2">
                     <li>
@@ -54,7 +64,7 @@ export default function Footer() {
                     </li>
                 </ul>
             </div>
-            <div className="mx-auto w-full  flex flex-col text-center py-2">
+            <div className="mx-auto w-full  flex flex-col p-8 text-left lg:text-center border-r-1">
                 <h2 className="font-bold text-lg">Pagine Legal</h2>
                 <ul className="flex flex-col gap-2">
                     <li>
@@ -72,6 +82,10 @@ export default function Footer() {
                 </ul >
 
             </div >
-        </div >
+            <div className="w-[95%] h-0.5 bg-chart-5 my-4 mx-auto">
+                <p className="text-center">All rights reserved</p>
+            </div>
+
+        </footer >
     )
 }
