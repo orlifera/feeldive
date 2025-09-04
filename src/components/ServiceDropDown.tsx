@@ -5,7 +5,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { List, ChevronDownIcon, Library } from "lucide-react"
+import { ChevronDownIcon, Library } from "lucide-react"
 import { TbScubaMask, TbScubaDivingTank, TbScubaDiving } from "react-icons/tb";
 import Link from "next/link"
 import { usePathname } from "next/navigation";
@@ -18,7 +18,7 @@ export default function ServiceDropDown() {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className='w-full flex flex-row items-center justify-between'>
-                <span className='w-full flex flex-row items-center'><List className='inline m-2' />Servizi </span><ChevronDownIcon />
+                <span className='w-full flex flex-row items-center'>Servizi </span><ChevronDownIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent className='min-w-[10em] bg-gradient-to-b from-white/90 to-white/75'>
                 <DropdownMenuItem className='w-full group'>

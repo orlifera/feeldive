@@ -7,7 +7,8 @@ import Switch from "./Switch"
 
 import { usePathname } from "next/navigation"
 import DropNav from "./DropNav"
-import { Home, Mail, UserRound, ImageIcon } from "lucide-react"
+import { Button } from "@/components/ui/button"
+// import { Home, Mail, UserRound, ImageIcon } from "lucide-react"
 import ServiceDropDown from "./ServiceDropDown"
 
 
@@ -31,9 +32,9 @@ function Navbar() {
     return (
 
         width > 999 ? (
-            <div className="w-full fixed top-0 p-8 z-50 flex flex-col justify-center items-center">
+            <div className="w-full fixed top-0 z-50 flex flex-col justify-center items-center">
                 <nav className="w-full mx-auto border border-primary/20 bg-gradient-to-b from-white/10 to-white/5
-    backdrop-blur-xl shadow-lg shadow-primary flex flex-row justify-between my-4 p-4 rounded-lg text-white">
+    backdrop-blur-xl flex flex-row justify-between items-center p-4 text-white">
                     <div id="logo" className="flex items-center justify-start">
                         <Image src="/logo.png" alt="Feeldive Logo" width={150} height={150} />
                     </div>
@@ -41,23 +42,26 @@ function Navbar() {
                     <div id="links" className="text-center text-lg font-medium flex items-center">
                         <ul className="flex flex-row justify-between items-center gap-4 text-md">
                             <li>
-                                <Link href='/' className={`cursor-pointer ${isActive('/') ? 'bg-primary text-white p-4 rounded-lg cursor-default w-full' : ''}`} ><Home className="inline m-2" />Home</Link>
+                                <Link href='/' className={`cursor-pointer ${isActive('/') ? 'font-extrabold border-b-1 border-primary text-white p-4 cursor-default w-full' : ''}`} >Home</Link>
                             </li>
-                            <li><Link href='/about' className={`cursor-pointer ${isActive('/about') ? 'bg-primary text-white p-4 rounded-lg cursor-default w-full' : ''}`}> <UserRound className="inline m-2" />Chi Siamo</Link></li>
+                            <li><Link href='/about' className={`cursor-pointer ${isActive('/about') ? 'font-extrabold border-b-1 border-primary text-white p-4 cursor-default w-full' : ''}`}>Chi Siamo</Link></li>
                             <li>
                                 <ServiceDropDown />
                             </li>
                             <li>
-                                <Link href='/gallery' className={`cursor-pointer ${isActive('/gallery') ? 'bg-primary text-white p-4 rounded-lg cursor-default w-full' : ''}`}><ImageIcon className="inline m-2" />Gallery</Link>
+                                <Link href='/gallery' className={`cursor-pointer ${isActive('/gallery') ? 'font-extrabold border-b-1 border-primary text-white p-4 cursor-default w-full' : ''}`}>Gallery</Link>
                             </li>
                             <li>
-                                <Link href='/contatti' className={`cursor-pointer ${isActive('/contatti') ? 'bg-primary text-white p-4 rounded-lg cursor-default w-full' : ''}`}><Mail className="inline m-2" /> Contatti</Link>
+                                <Link href='/contatti' className={`cursor-pointer ${isActive('/contatti') ? 'font-extrabold border-b-1 border-primary text-white p-4 cursor-default w-full' : ''}`}>Contatti</Link>
 
                             </li>
-                            <li>
-                                <Switch />
-                            </li>
                         </ul>
+                    </div>
+                    <div className="flex flex-row justify-center items-center gap-4">
+                        <Button className="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors" asChild>
+                            <Link href='/contatti'>Prenota Ora</Link>
+                        </Button>
+                        <Switch />
                     </div>
 
                 </nav >
