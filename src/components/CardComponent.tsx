@@ -20,12 +20,12 @@ export default function CardComponent({ title, description, src, button, subtitl
 
             {/* Content Overlay */}
             <CardFooter
-                className="absolute inset-0 flex flex-col justify-end p-4 
+                className="absolute inset-0 flex flex-col justify-end p-10
                    bg-gradient-to-t from-black/70 via-black/30 to-transparent 
-                   text-white transition-all duration-500"
+                   text-white transition-all duration-500 items-start gap-2"
             >
                 {/* Title always visible */}
-                <p className="text-lg text-chart-5">{subtitle?.toUpperCase()}</p>
+                <p className="text-md font-semibold text-chart-5">{subtitle?.toUpperCase()}</p>
                 <CardTitle className="text-3xl mb-2">{title}</CardTitle>
 
                 {/* Extra info fades in on hover */}
@@ -41,7 +41,7 @@ export default function CardComponent({ title, description, src, button, subtitl
                     </CardDescription>
 
                     {button && link && text && (
-                        <Button asChild className="mt-2">
+                        <Button asChild className="mt-2 py-6 px-8 rounded-2xl">
                             <Link href={link} target="_blank" rel="noopener noreferrer">
                                 {text}
                             </Link>

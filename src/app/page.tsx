@@ -1,8 +1,6 @@
 "use client"
 
 import Banner from "@/components/Banner";
-import { motion } from "motion/react";
-import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
 import Link from "next/link";
 import Image from "next/image";
@@ -79,24 +77,15 @@ export default function Home() {
       </div>
 
       <div id="icon-link" className="w-full">
-        <h1 className="text-5xl text-outline-primary font-[900] mx-8 mt-8 mb-1 text-primary lg:text-justify">
+        <h1 className="text-5xl text-outline-primary font-[900] mx-8 mt-16 mb-1 text-primary lg:text-justify">
           FeelDive
         </h1>
-        <HeroHighlight>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: [20, -5, 0] }}
-            transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1] }}
-            viewport={{ once: true, amount: 0.5 }}
-            className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-primary dark:text-white lg:text-justify w-[70%]"
-          >
-            Nel cuore della maremma, spinti dalla nostra passione nel condividere
-            il
-            {" "}
-            <Highlight className="text-white">mare</Highlight>
-            {" "} con tutti.
-          </motion.h2>
-        </HeroHighlight>
+        <h2
+          className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-primary dark:text-white lg:text-justify w-[70%]"
+        >
+          Nel cuore della maremma, spinti dalla nostra passione nel condividere
+          il mare con tutti.
+        </h2>
 
         <div className="w-[15em] h-1 bg-chart-5 rounded-lg mx-8 mt-2 mb-4" />
 
@@ -145,17 +134,17 @@ export default function Home() {
             <source src="/feeldive.mp4" type="video/mp4" />
           </video>
         </div>
-      </div>
+      </div >
       <div className="w-full lg:h-screen bg-foreground text-primary-foreground ">
-        <h1 className="text-5xl font-[900] mx-8 mt-8 mb-1 text-wrap lg:text-justify text-outline-chart-5">
+        <h1 className="text-5xl font-[900] mx-8 mt-16 mb-1 text-wrap lg:text-justify text-outline-chart-5">
           Immersioni
         </h1>
 
-        <h2 className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-chart-5 dark:text-primary lg:text-justify w-[70%]">
+        <h2 className="text-4xl font-[900] mx-8 mt-8 mb-2 text-wrap text-chart-5 dark:text-primary lg:text-justify w-[70%]">
           Esplora i fondali della Maremma con le nostre immersioni guidate
         </h2>
         <div className="w-[15em] h-1 bg-primary rounded-lg mx-8 mb-4" />
-        <p className="text-lg font-medium mx-8 my-4 text-wrap lg:text-justify">
+        <p className="text-lg font-medium mx-8 my-8 text-wrap lg:text-justify">
           Unisciti a noi per esplorare le meraviglie del mondo sottomarino. Che tu
           sia un principiante o un sub esperto, abbiamo l&apos;immersione perfetta per
           te. Scopri i nostri corsi subacquei certificati, noleggia attrezzature
