@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <div className="bg-gradient-to-b from-white/10 to-white/5 w-full md:grid md:grid-cols-3 md:p-4 text-primary justify-evenly">
+        <div className="bg-gradient-to-b from-white/10 to-white/5 w-full md:grid md:grid-cols-3 md:p-4 text-primary dark:text-white justify-evenly">
 
             <div className="mx-auto w-full  flex flex-col text-center border-r-1 py-2">
                 <h2 className="font-bold text-lg">FeelDive Diving Center</h2>

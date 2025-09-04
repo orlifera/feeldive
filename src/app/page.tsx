@@ -1,6 +1,17 @@
+"use client"
+
 import Banner from "@/components/Banner";
+import { motion } from "motion/react";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
 import { StickyScroll } from "@/components/ui/sticky-scroll-reveal";
+import Link from "next/link";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import CardComponent from "@/components/CardComponent";
+import cards from "@/json/cards.json";
+// import GoogleReviewsWidget from "google-reviews-widget"
+import { ElfsightWidget } from 'react-elfsight-widget';
+
 
 const content = [
   {
@@ -15,7 +26,7 @@ const content = [
         height={300}
         className="rounded-lg shadow-lg"
       />
-    )
+    ),
   },
   {
     title: "Cresci con noi",
@@ -29,8 +40,7 @@ const content = [
         height={300}
         className="rounded-lg shadow-lg"
       />
-
-    )
+    ),
   },
   {
     title: "Vivi l'avventura",
@@ -44,10 +54,9 @@ const content = [
         height={300}
         className="rounded-lg shadow-lg"
       />
-    )
-  }
-]
-
+    ),
+  },
+];
 
 export default function Home() {
   return (
@@ -56,20 +65,139 @@ export default function Home() {
         title="Esplora il mondo sottomarino con Feeldive"
         subtitle="Corsi subaquei, immersioni guidate e tanto altro ti aspetta al centro di immersioni FeelDive."
         source="/1.png"
-        button={true}
-        link="/contatti"
-        brightness="brightness-60"
+        button1={true}
+        button2={true}
+        link1="/immersioni"
+        link2="/contatti"
+        icon={true}
+        social={true}
+        classname="brightness-80"
       />
-      <div className="md:block hidden">
+
+      <div className="lg:block hidden">
         <StickyScroll content={content} />
       </div>
+
+      <div id="icon-link" className="w-full">
+        <h1 className="text-5xl text-outline-primary font-[900] mx-8 mt-8 mb-1 text-primary lg:text-justify">
+          FeelDive
+        </h1>
+        <HeroHighlight>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: [20, -5, 0] }}
+            transition={{ duration: 0.5, ease: [0.4, 0.0, 0.2, 1] }}
+            viewport={{ once: true, amount: 0.5 }}
+            className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-primary dark:text-white lg:text-justify w-[70%]"
+          >
+            Nel cuore della maremma, spinti dalla nostra passione nel condividere
+            il
+            {" "}
+            <Highlight className="text-white">mare</Highlight>
+            {" "} con tutti.
+          </motion.h2>
+        </HeroHighlight>
+
+        <div className="w-[15em] h-1 bg-chart-5 rounded-lg mx-8 mt-2 mb-4" />
+
+        <div>
+          <p className="text-lg font-medium m-8 text-wrap text-primary dark:text-white lg:text-justify">
+            FeelDive è il centro immersioni che funge da rifugio per subacquei di
+            tutti i livelli. Sito nel cuore della Maremma, offriamo un ponte tra
+            la terra e il mare, alla scoperta di un mondo sommerso tuttaltro che
+            ordinario, circondato di gorgonie, relitti e pesce di ogni tipo.
+            <br />
+            <br />
+            Che tu sia un sub esperto in cerca di nuove avventure o un principiante
+            desideroso di esplorare il mondo sottomarino, FeelDive è qui per te,
+            garantendoti il massimo della sicurezza.
+          </p>
+          <ul className="flex flex-row flex-wrap justify-start items-center mx-8">
+            <li>
+              <Image
+                src="/utr.png"
+                alt="UTR"
+                width={80}
+                height={50}
+                className="m-4 inline"
+              />
+            </li>
+            <li>
+              <Image
+                src="/padi.png"
+                alt="PADI"
+                width={100}
+                height={70}
+                className="m-4 inline"
+              />
+            </li>
+          </ul>
+          <Button className="m-8" asChild>
+            <Link href="/about">Scopri di più</Link>
+          </Button>
+        </div>
+        <div className="w-[70%] mx-auto my-8">
+          <video
+            controls
+            preload="auto"
+            className="rounded-lg w-full"
+          >
+            <source src="/feeldive.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div className="w-full lg:h-screen bg-foreground text-primary-foreground ">
+        <h1 className="text-5xl font-[900] mx-8 mt-8 mb-1 text-wrap lg:text-justify text-outline-chart-5">
+          Immersioni
+        </h1>
+
+        <h2 className="text-4xl font-[900] mx-8 mt-8 mb-1 text-wrap text-chart-5 dark:text-white lg:text-justify w-[70%]">
+          Esplora i fondali della Maremma con le nostre immersioni guidate
+        </h2>
+        <div className="w-[15em] h-1 bg-primary rounded-lg mx-8 mb-4" />
+        <p className="text-lg font-medium mx-8 my-4 text-wrap lg:text-justify">
+          Unisciti a noi per esplorare le meraviglie del mondo sottomarino. Che tu
+          sia un principiante o un sub esperto, abbiamo l&apos;immersione perfetta per
+          te. Scopri i nostri corsi subacquei certificati, noleggia attrezzature
+          di alta qualità e vivi avventure indimenticabili nei fondali della
+          Maremma.
+        </p>
+
+        <Button className="mx-8" asChild>
+          <Link href="/immersioni">Scopri di più</Link>
+        </Button>
+
+        <div className="flex flex-col lg:flex-row gap-4 p-8 w-full">
+          {cards.map(({ src, title, description, button, subtitle, link, text }, i) => (
+            <CardComponent
+              key={i}
+              title={title}
+              subtitle={subtitle}
+              description={description}
+              src={src}
+              button={button}
+              link={link}
+              text={text}
+            />
+          ))}
+        </div>
+
+      </div >
+
+      <div className="w-full h-[30em] flex justify-center items-center bg-gradient-to-b from-white/10 to-white/5 text-primary dark:text-white ">
+        {/* <GoogleReviewsWidget instanceId='Nf4D0jlyznfSfyExFWnr' /> */}
+        <ElfsightWidget widgetId='2884fdd2-ef2d-4d07-b570-073041fad233' lazy />
+      </div>
+
       <Banner
         title="Prenota la tua avventura subacquea oggi stesso!"
         subtitle="Che tu sia un principiante desideroso di esplorare il mondo sottomarino o un sub esperto in cerca di nuove avventure, FeelDive è qui per te. Contattaci ora e inizia il tuo viaggio con noi."
         source="/5.png"
-        button={true}
-        link="/contatti"
-        brightness="brightness-40"
+        button1={true}
+        button2={true}
+        link1="/dsd"
+        link2="/contatti"
+        classname="brightness-40"
       />
     </>
   );
