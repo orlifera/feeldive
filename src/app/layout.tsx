@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+// import LocalFont from "next/font/local";
 import { Exo } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/ThemeProvider";
@@ -6,7 +7,11 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
-const exo = Exo({
+// const myFont = LocalFont({
+//   src: "../../public/font/NeuropoliticalRg.otf"
+// })
+
+const myFont = Exo({
   variable: "--font-exo",
   weight: ["400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
@@ -25,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${exo.className} antialiased w-full h-full bg-background scroll-smooth`}
+        className={`${myFont.className} antialiased w-full h-full bg-background scroll-smooth`}
       >
         <a
           href="#main-content"

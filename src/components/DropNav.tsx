@@ -32,6 +32,11 @@ export default function DropNav() {
                             <Home className="inline m-2 group-hover:stroke-white" /> Home
                         </Link>
                     </DropdownMenuItem>
+                    <DropdownMenuItem className='w-full group'>
+                        <Link href='/about' className='flex items-center'>
+                            <UserRound className='inline m-2 group-hover:stroke-white' /> Chi Siamo
+                        </Link>
+                    </DropdownMenuItem>
                     <DropdownMenuItem
                         asChild
                         onSelect={(e) => e.preventDefault()}
@@ -70,11 +75,7 @@ export default function DropNav() {
                         </Accordion>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem className='w-full group'>
-                        <Link href='/prezzi' className='flex items-center'>
-                            <UserRound className='inline m-2 group-hover:stroke-white' /> Chi Siamo
-                        </Link>
-                    </DropdownMenuItem>
+
                     <DropdownMenuItem className='w-full group'>
                         <Link href='/gallery'>
                             <Images className='inline m-2 group-hover:stroke-white' /> Gallery
