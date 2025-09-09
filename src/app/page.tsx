@@ -60,9 +60,10 @@ export default function Home() {
   return (
     <>
       <Banner
+        video={true}
         title="Esplora il mondo sottomarino con Feeldive"
         subtitle="Corsi subaquei, immersioni guidate e tanto altro ti aspetta al centro di immersioni FeelDive."
-        source="/1.png"
+        source="/138.mp4"
         button1={true}
         button2={true}
         link1="/immersioni"
@@ -127,15 +128,16 @@ export default function Home() {
         </div>
         <div className="w-[70%] mx-auto my-8">
           <video
-            controls
-            preload="auto"
+            autoPlay
+            loop
+            muted
             className="rounded-lg w-full"
           >
-            <source src="/feeldive.mp4" type="video/mp4" />
+            <source src="/feeldive.mp4" />
           </video>
         </div>
       </div >
-      <div className="w-full lg:h-screen bg-foreground text-primary-foreground ">
+      <div className="w-full  bg-foreground text-primary-foreground ">
         <h1 className="text-5xl font-[900] mx-8 mt-16 mb-1 text-wrap lg:text-justify text-outline-chart-5">
           Immersioni
         </h1>

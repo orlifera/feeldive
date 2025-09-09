@@ -59,11 +59,11 @@
   --popover-foreground: oklch(0.145 0.02 220);
 
   /* Primary (Avio Blue) */
-  --primary: oklch(0.55 0.08 220);
+  --primary: rgb(70, 156, 181);
   --primary-foreground: oklch(0.985 0.01 220);
 
   /* Secondary (Powder Blue) */
-  --secondary: oklch(0.85 0.06 210);
+  --secondary: oklch(40.229% 0.038 211.222);
   --secondary-foreground: oklch(0.2 0.03 220);
 
   /* Accent (Bordeaux) */
@@ -118,7 +118,7 @@
   --popover-foreground: oklch(0.97 0.01 220);
 
   /* Primary (Avio Blue, lighter in dark) */
-  --primary: rgb(70, 156, 181);
+  --primary: oklch(0.55 0.08 220);
   --primary-foreground: oklch(0.15 0.02 220);
   --outline: rgb(70, 156, 181);
 

@@ -4,19 +4,25 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowDown, Facebook, Instagram } from 'lucide-react';
 
-export default function Banner({ title, subtitle, source, button1, link1, text1, button2, link2, text2, icon = false, social = false, classname }: BannerProps) {
+export default function Banner({ video = false, title, subtitle, source, button1 = false, link1, text1, button2 = false, link2, text2, icon = false, social = false, classname }: BannerProps) {
     return (
         <div className="relative px-2 w-full h-screen flex items-center justify-center text-white">
-            <div className="absolute inset-0 z-0 w-full" >
-                <Image
-                    src={source}
-                    alt="Banner Background"
-                    layout="fill"
-                    objectFit="cover"
-                    className={classname}
-                />
-            </div >
 
+            {video ?
+
+                <video autoPlay className={`absolute inset-0 z-0 w-full h-full object-cover ${classname}`} loop muted>
+                    <source src={source} type="video/mp4" />
+                </video>
+                :
+                <div className="absolute inset-0 z-0 w-full" >
+                    <Image
+                        src={source}
+                        alt="Banner Background"
+                        layout="fill"
+                        objectFit="cover"
+                        className={classname}
+                    />
+                </div >}
             {/* Text content */}
             <div className="relative z-20 text-center px-6 max-w-4xl">
                 <h1 className="text-4xl font-extrabold">{title} </h1>

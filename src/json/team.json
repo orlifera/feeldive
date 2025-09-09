@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Pinco Pallo",
+        "subtitle": "Istruttore PADI",
+        "description": "Istruttore PADI con oltre 10 anni di esperienza nella subacquea. Specializzato in immersioni tecniche e fotografia subacquea.",
+        "src": "/9.png"
+    },
+    {
+        "title": "Mario Rossi",
+        "subtitle": "Divemaster",
+        "description": "Divemaster certificato con una passione per l'esplorazione dei relitti e la conservazione marina.",
+        "src": "/10.png"
+    },
+    {
+        "title": "Luigi Bianchi",
+        "subtitle": "Istruttore PADI",
+        "description": "Istruttore PADI con esperienza in corsi per principianti e avanzati. Ama condividere la sua passione per il mare.",
+        "src": "/11.png"
+    },
+    {
+        "title": "Giulia Verdi",
+        "subtitle": "Istruttore PADI",
+        "description": "Istruttore PADI con una forte attenzione alla sicurezza e alla formazione dei subacquei di tutti i livelli.",
+        "src": "/12.png"
+    }
+]

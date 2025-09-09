@@ -4,11 +4,11 @@ import { Card, CardFooter, CardTitle, CardDescription } from "@/components/ui/ca
 import { Button } from "@/components/ui/button";
 import { CardProps } from "@/types";
 
-export default function CardComponent({ title, description, src, button, subtitle, link, text }: CardProps) {
+export default function CardComponent({ title, description, src, button, subtitle, link, classname, text }: CardProps) {
     return (
-        <Card className="relative w-full h-[38em] overflow-hidden rounded-2xl shadow-lg 
+        <Card className={`relative overflow-hidden rounded-2xl shadow-lg 
              transition-[flex] duration-500 ease-in-out 
-             lg:flex-[1] lg:hover:flex-[2] group"
+             lg:flex-[1] lg:hover:flex-[2] group ${classname ? classname : "w-full  h-[38em]"}`}
         >
             {/* Background Image */}
             <Image

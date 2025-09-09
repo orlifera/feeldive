@@ -1,4 +1,5 @@
 export type BannerProps = {
+    video?: boolean;
     title: string;
     subtitle?: string;
     source: string;
@@ -21,4 +22,5 @@ export type CardProps = {
     button?: boolean;
     link?: string;
     text?: string;
+    classname?: string;
 }
