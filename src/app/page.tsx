@@ -18,7 +18,7 @@ const content = [
       "Scopri le meraviglie del mondo sottomarino con le nostre immersioni guidate. Che tu sia un principiante o un sub esperto, abbiamo l'immersione perfetta per te.",
     content: (
       <Image
-        src="/2.png"
+        src="/2.webp"
         alt="Immersioni"
         width={700}
         height={300}
@@ -32,7 +32,7 @@ const content = [
       "Impara a immergerti con i nostri corsi subacquei certificati. Dai corsi per principianti ai corsi avanzati, abbiamo il programma giusto per te.",
     content: (
       <Image
-        src="/3.png"
+        src="/3.webp"
         alt="Noleggio Attrezzatura"
         width={400}
         height={300}
@@ -46,7 +46,7 @@ const content = [
       "Relitti, angoli nascosti e scenari mozzafiato del Tirreno ti aspettano per un’esperienza indimenticabile.",
     content: (
       <Image
-        src="/4.png"
+        src="/4.webp"
         alt="Corsi Sub"
         width={400}
         height={300}
@@ -105,7 +105,7 @@ export default function Home() {
           <ul className="flex flex-row flex-wrap justify-start items-center mx-8">
             <li>
               <Image
-                src="/utr.png"
+                src="/utr.webp"
                 alt="UTR"
                 width={80}
                 height={50}
@@ -114,7 +114,7 @@ export default function Home() {
             </li>
             <li>
               <Image
-                src="/padi.png"
+                src="/padi.webp"
                 alt="PADI"
                 width={100}
                 height={70}
@@ -183,7 +183,7 @@ export default function Home() {
       <Banner
         title="Prenota la tua avventura subacquea oggi stesso!"
         subtitle="Che tu sia un principiante desideroso di esplorare il mondo sottomarino o un sub esperto in cerca di nuove avventure, FeelDive è qui per te. Contattaci ora e inizia il tuo viaggio con noi."
-        source="/5.png"
+        source="/5.webp"
         button1={true}
         button2={true}
         link1="/dsd"

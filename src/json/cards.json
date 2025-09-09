@@ -3,7 +3,7 @@
         "title": "Immersioni Guidate",
         "subtitle": "Esplora i fondali",
         "description": "Esplora i fondali della Maremma con le nostre immersioni guidate. Adatte a tutti i livelli di esperienza.",
-        "src": "/2.png",
+        "src": "/2.webp",
         "button": true,
         "link": "/immersioni",
         "text": "Scopri di più"
@@ -12,7 +12,7 @@
         "title": "Corsi di Sub",
         "subtitle": "Diventa un subacqueo",
         "description": "Diventa un subacqueo certificato con i nostri corsi PADI. Offriamo corsi per principianti ed esperti.",
-        "src": "/3.png",
+        "src": "/3.webp",
         "button": true,
         "link": "/corsi",
         "text": "Inizia ora"
@@ -21,7 +21,7 @@
         "title": "Noleggio Attrezzatura",
         "subtitle": "Attrezzatura di qualità",
         "description": "Noleggia attrezzatura subacquea di alta qualità per le tue immersioni. Disponibile per tutti i livelli di esperienza.",
-        "src": "/7.png",
+        "src": "/7.webp",
         "button": true,
         "link": "/noleggio",
         "text": "Prenota ora"

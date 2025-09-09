@@ -21,7 +21,7 @@ export default function Page() {
             <Banner
                 title='Contattaci'
                 subtitle='contatti'
-                source='/25.png'
+                source='/25.webp'
                 classname=''
             />
             <div className="container m-auto py-16">

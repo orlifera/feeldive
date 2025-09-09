@@ -36,7 +36,7 @@ function Navbar() {
                 <nav className="w-full mx-auto border border-primary/20 bg-gradient-to-b from-white/10 to-white/5
     backdrop-blur-xl flex flex-row justify-between items-center p-4">
                     <div id="logo" className="flex items-center justify-start">
-                        <Image src="/logo.png" alt="Feeldive Logo" width={150} height={150} />
+                        <Image src="/logo.webp" alt="Feeldive Logo" width={150} height={150} />
                     </div>
 
                     <div id="links" className="text-center text-lg font-medium flex items-center">

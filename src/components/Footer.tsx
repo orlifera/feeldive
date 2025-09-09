@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="mx-auto w-full  flex flex-col p-8 text-left lg:text-center border-r-1">
                 <div>
                     <Image
-                        src="/logo.png"
+                        src="/logo.webp"
                         alt="FeelDive Logo"
                         width={150}
                         height={50}

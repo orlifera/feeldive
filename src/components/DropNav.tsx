@@ -21,7 +21,7 @@ import { TbScubaDiving, TbScubaDivingTank, TbScubaMask } from 'react-icons/tb'
 export default function DropNav() {
     return (
         <div className='z-50 w-full rounded items-center flex justify-between border border-white/20 bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-xl shadow-lg shadow-primary flex-row p-4 gap-8 text-primary'>
-            <Image src="/logo.png" alt="Feeldive Logo" width={100} height={250} />
+            <Image src="/logo.webp" alt="Feeldive Logo" width={100} height={250} />
             <DropdownMenu>
                 <DropdownMenuTrigger>
                     <Menu className="m-4 stroke-white" />

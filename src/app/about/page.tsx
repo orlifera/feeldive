@@ -18,7 +18,7 @@ export default function page() {
             <Banner
                 title="Benvenuti al FeelDive"
                 subtitle='Non siamo solo un centro immersioni, siamo ragazzi con una passione da trasmettere.'
-                source='/1.png'
+                source='/1.webp'
                 button1={true}
                 link1='#story'
                 text1='La Nostra Storia'
@@ -47,7 +47,7 @@ export default function page() {
                 </div>
                 <div className='p-8'>
                     <Image
-                        src="/2.png"
+                        src="/2.webp"
                         alt="Immersioni"
                         width={200}
                         height={200}
