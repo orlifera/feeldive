@@ -47,11 +47,11 @@ export default function page() {
                 </div>
                 <div className='p-8'>
                     <Image
-                        src="/2.webp"
+                        src="/8.webp"
                         alt="Immersioni"
-                        width={200}
-                        height={200}
-                        className="w-full h-[20%] items-center justify-center rounded-lg shadow-lg"
+                        width={300}
+                        height={300}
+                        className="flex mx-auto items-center justify-center rounded-lg shadow-lg"
                     />
                 </div>
             </section>

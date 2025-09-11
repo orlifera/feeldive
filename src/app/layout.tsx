@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/providers/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-
+import { Toaster } from "sonner";
 // const myFont = LocalFont({
 //   src: "../../public/font/NeuropoliticalRg.otf"
 // })
@@ -50,6 +50,7 @@ export default function RootLayout({
             {children}
           </main>
           <BackToTop />
+          <Toaster richColors position="top-center" />
           <Footer />
         </ThemeProvider>
       </body>

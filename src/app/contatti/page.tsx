@@ -1,6 +1,8 @@
+"use client"
+
 import Banner from '@/components/Banner'
 import { MailIcon, MapPin, Phone } from 'lucide-react';
-import React from 'react'
+import { useState } from 'react'
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,22 +11,61 @@ import {
     RadioGroup,
     RadioGroupItem,
 } from "@/components/ui/radio-group"
+import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
-// import { useForm } from "react-hook-form"
 
 export default function Page() {
 
-    // const form = useForm()
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setLoading(true);
+
+        const form = e.currentTarget; // ✅ save reference before await
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            let result: { success?: boolean; error?: string } = {};
+            try {
+                result = await res.json();
+                console.log("Response status:", res.status);
+                console.log("Response body:", result);
+            } catch {
+                result = {};
+            }
+
+            if (res.ok && result.success) {
+                toast.success("Messaggio inviato con successo!");
+                form.reset(); // ✅ use saved ref
+                return;
+            }
+
+            toast.error(result.error || "Errore durante l'invio. Riprova più tardi.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+
 
     return (
         <>
             <Banner
                 title='Contattaci'
-                subtitle='contatti'
+                subtitle='Non esitare a contatarci per qualsiasi dubbio o informazione. Siamo qui per aiutarti a vivere la migliore esperienza subacquea possibile!'
                 source='/25.webp'
                 classname=''
             />
-            <div className="container m-auto py-16">
+            <div className="container m-auto py-16 px-8">
                 <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12">
 
                     {/* LEFT: Contact Info */}
@@ -45,67 +86,33 @@ export default function Page() {
 
                     {/* RIGHT: Contact Form */}
                     <div>
-                        <form className="space-y-8">
-                            <fieldset className="grid grid-cols-2 gap-4">
+                        <form onSubmit={handleSubmit} className="space-y-8">
+                            <fieldset className="md:grid md:grid-cols-2 flex flex-col gap-4">
                                 <div>
-                                    <Label
-                                        htmlFor='name'
-                                        className='text-md font-semibold py-2'>
-                                        Nome
-                                    </Label>
-                                    <Input
-                                        type="text"
-                                        id='nome'
-                                        placeholder="Mario"
-                                        className="w-full p-4 rounded-md border"
-                                    />
+                                    <Label htmlFor='nome' className='text-md font-semibold py-2'>Nome</Label>
+                                    <Input type="text" id='nome' name="nome" placeholder="Mario" className="w-full p-4 rounded-md border" required />
                                 </div>
                                 <div>
-                                    <Label
-                                        htmlFor='cognome'
-                                        className='text-md font-semibold py-2'>
-                                        Cognome
-                                    </Label>
-                                    <Input
-                                        id='cognome'
-                                        type="text"
-                                        placeholder="Rossi"
-                                        className="w-full p-4 rounded-md border"
-                                    />
+                                    <Label htmlFor='cognome' className='text-md font-semibold py-2'>Cognome</Label>
+                                    <Input id='cognome' name="cognome" type="text" placeholder="Rossi" className="w-full p-4 rounded-md border" required />
                                 </div>
                             </fieldset>
-                            <fieldset className="grid grid-cols-2 gap-4">
+
+                            <fieldset className="md:grid md:grid-cols-2 flex flex-col gap-4">
                                 <div>
-                                    <Label
-                                        htmlFor='email'
-                                        className='text-md font-semibold py-2'>
-                                        Email
-                                    </Label>
-                                    <Input
-                                        id='email'
-                                        type="email"
-                                        placeholder="mario.rossi@esempio.com"
-                                        className="w-full p-4 rounded-md border"
-                                    />
+                                    <Label htmlFor='email' className='text-md font-semibold py-2'>Email</Label>
+                                    <Input id='email' name="email" type="email" placeholder="mario.rossi@esempio.com" className="w-full p-4 rounded-md border" required />
                                 </div>
                                 <div>
-                                    <Label htmlFor='phone' className='text-md font-semibold py-2'>
-                                        Telefono
-                                    </Label>
-                                    <Input
-                                        id='phone'
-                                        type='numeric'
-                                        placeholder='+39 1234567890'
-                                        className="w-full p-4 rounded-md border"
-                                    />
+                                    <Label htmlFor='phone' className='text-md font-semibold py-2'>Telefono</Label>
+                                    <Input id='phone' name="phone" type="text" placeholder='+39 1234567890' className="w-full p-4 rounded-md border" required />
                                 </div>
                             </fieldset>
-                            <fieldset className="grid grid-cols-2 gap-4">
+
+                            <fieldset className="md:grid md:grid-cols-2 flex flex-col gap-4">
                                 <div>
-                                    <Label className='text-md font-semibold py-2'>
-                                        Che brevetto hai?
-                                    </Label>
-                                    <RadioGroup defaultValue="comfortable" className='text-lg'>
+                                    <Label className='text-md font-semibold py-2'>Che brevetto hai?</Label>
+                                    <RadioGroup name="brevetto" className='text-lg' required>
                                         <div className="flex items-center gap-3">
                                             <RadioGroupItem value="owd" id="r1" />
                                             <Label htmlFor="r1">Open Water Diver</Label>
@@ -125,43 +132,32 @@ export default function Page() {
                                     </RadioGroup>
                                 </div>
                                 <div>
-                                    <Label className='text-md font-semibold py-2'>
-                                        Hai la tua attrezzatura?
-                                    </Label>
-                                    <RadioGroup defaultValue="comfortable">
+                                    <Label className='text-md font-semibold py-2'>Hai la tua attrezzatura?</Label>
+                                    <RadioGroup name="attrezzatura" required>
                                         <div className="flex items-center gap-3">
-                                            <RadioGroupItem value="si" id="r1" />
-                                            <Label htmlFor="r1">Si</Label>
+                                            <RadioGroupItem value="si" id="equip1" />
+                                            <Label htmlFor="equip1">Si</Label>
                                         </div>
                                         <div className="flex items-center gap-3">
-                                            <RadioGroupItem value="no" id="r2" />
-                                            <Label htmlFor="r2">No, devo noleggiarla</Label>
+                                            <RadioGroupItem value="no" id="equip2" />
+                                            <Label htmlFor="equip2">No, devo noleggiarla</Label>
                                         </div>
                                     </RadioGroup>
                                 </div>
                             </fieldset>
+
                             <fieldset>
-                                <Label
-                                    htmlFor='message'
-                                    className='text-md font-semibold py-2'
-                                >
-                                    Messaggio
-                                </Label>
-                                <Textarea
-                                    placeholder="FeelDive siete i migliori..."
-                                    className="w-full h-32 p-4 rounded-md border border-primary resize-none"
-                                />
+                                <Label htmlFor='message' className='text-md font-semibold py-2'>Messaggio</Label>
+                                <Textarea name="message" placeholder="FeelDive siete i migliori..." className="w-full h-32 p-4 rounded-md border border-primary resize-none" required />
                             </fieldset>
 
                             <div className="flex items-center space-x-2">
-                                <Input id='tos' type="checkbox" className="w-4 h-4" />
+                                <Input id='tos' name="tos" type="checkbox" className="w-4 h-4" required />
                                 <Label htmlFor='tos'>Accetto i <Link href='tos' className='underline'>Termini e Condizioni</Link></Label>
                             </div>
-                            <Button
-                                type="submit"
-                                variant={"default"}
-                            >
-                                Send Message
+
+                            <Button type="submit" variant={"default"} disabled={loading}>
+                                {loading ? "Invio..." : "Send Message"}
                             </Button>
                         </form>
                     </div>
@@ -169,6 +165,9 @@ export default function Page() {
 
                 {/* MAP Section */}
                 <div className="mt-16">
+                    <h2 className="text-3xl font-bold mb-4">Dove Siamo</h2>
+                    <div className="bg-chart-5 h-1 mb-6 w-[5em]" />
+
                     <iframe width='100%' height='400px' className='rounded' src="https://api.mapbox.com/styles/v1/orlifera/cmfcmxjrf000201s3b6m9e7j0.html?title=false&access_token=pk.eyJ1Ijoib3JsaWZlcmEiLCJhIjoiY2x1YmIwNXIzMHN3NTJqcW54M2ZheHF5diJ9.Qr1sq3jmJBh-hN4nAK4x_g&zoomwheel=false#16.22/42.888723/10.787816" title="Feeldive" ></iframe>
                 </div>
             </div>

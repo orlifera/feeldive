@@ -10,7 +10,7 @@ export default function Banner({ video = false, title, subtitle, source, button1
 
             {video ?
 
-                <video autoPlay className={`absolute inset-0 z-0 w-full h-full object-cover ${classname}`} loop muted>
+                <video autoPlay playsInline className={`absolute inset-0 z-0 w-full h-full object-cover ${classname}`} loop muted>
                     <source src={source} type="video/mp4" />
                 </video>
                 :
