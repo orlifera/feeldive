@@ -1,10 +1,19 @@
+/**
+ * @name ContactAPI
+ * @description API endpoint to handle contact form submissions and send email notifications.
+ * Utilizes nodemailer for email sending and handles errors gracefully.
+ * 
+ * @author Orlifera
+ * 
+ */
+
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
     try {
         const body = await req.json();
-        const { nome, cognome, email, phone, brevetto, attrezzatura, message } = body;
+        const { nome, cognome, email, phone, brevetto, attrezzatura, altezza, peso, numero, message } = body;
 
         const transporter = nodemailer.createTransport({
             service: "gmail",
@@ -25,6 +34,11 @@ export async function POST(req: Request) {
         <p><b>Telefono:</b> ${phone}</p>
         <p><b>Brevetto:</b> ${brevetto}</p>
         <p><b>Attrezzatura:</b> ${attrezzatura}</p>
+        ${attrezzatura === "no" ? `
+        <p><b>Altezza:</b> ${altezza}</p>
+        <p><b>Peso:</b> ${peso}</p>
+        <p><b>Numero di scarpe:</b> ${numero}</p>
+        ` : ''}
         <br/>
         <p><b>Messaggio:</b><br/>${message}</p>
       `,

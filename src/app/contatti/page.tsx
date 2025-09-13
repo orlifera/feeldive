@@ -1,3 +1,13 @@
+/**
+ * @name ContactPage
+ * @description Allows users to contact the dive center for inquiries or bookings.
+ * Features a form with fields for name, email, phone, certification level, equipment rental details, and message.
+ * Utilizes client-side validation and provides user feedback on submission status.
+ * Integrates with an API endpoint to handle form submissions and send email notifications.
+ * 
+ * @author Orlifera
+ */
+
 "use client"
 
 import Banner from '@/components/Banner'
@@ -16,36 +26,44 @@ import { Button } from '@/components/ui/button';
 
 export default function Page() {
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [attrezzatura, setAttrezzatura] = useState<string>('');
+    const [quantities, setQuantities] = useState({
+        altezza: "",
+        peso: "",
+        numero: "",
+    });
+    //had to do this bc RadioGroup doesn't auto-fill FormData, and conditionally rendering inputs inside form messes with it too, bc they do not exists in the dom. 
+
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
 
-        const form = e.currentTarget; // ✅ save reference before await
-
+        const form = e.currentTarget;
         const formData = new FormData(form);
         const data = Object.fromEntries(formData.entries());
 
+        // force attrezzatura from state (since RadioGroup doesn’t auto-fill FormData)
+        data.attrezzatura = attrezzatura;
+
         try {
+            console.log("FormData entries:", [...formData.entries()]);
+            console.log("Data object:", data);
             const res = await fetch("/api/contact", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
 
-            let result: { success?: boolean; error?: string } = {};
-            try {
-                result = await res.json();
-                console.log("Response status:", res.status);
-                console.log("Response body:", result);
-            } catch {
-                result = {};
-            }
+            const result = await res.json();
+            console.log("Response body:", result);
 
             if (res.ok && result.success) {
                 toast.success("Messaggio inviato con successo!");
-                form.reset(); // ✅ use saved ref
+                form.reset();
+                setAttrezzatura("");
+                setQuantities({ altezza: "", peso: "", numero: "" });
                 return;
             }
 
@@ -54,6 +72,8 @@ export default function Page() {
             setLoading(false);
         }
     };
+
+
 
 
 
@@ -86,6 +106,12 @@ export default function Page() {
 
                     {/* RIGHT: Contact Form */}
                     <div>
+                        <h2 className="text-3xl font-bold">Prenota con il nostro form</h2>
+                        <div className="bg-chart-5 h-1 mb-6 w-[5em]" />
+                        <p className=" mb-6">
+                            Compila il form sottostante per prenotare la tua immersione o per richiedere informazioni. Ti risponderemo il prima possibile!
+                        </p>
+                        {/* Form */}
                         <form onSubmit={handleSubmit} className="space-y-8">
                             <fieldset className="md:grid md:grid-cols-2 flex flex-col gap-4">
                                 <div>
@@ -133,16 +159,84 @@ export default function Page() {
                                 </div>
                                 <div>
                                     <Label className='text-md font-semibold py-2'>Hai la tua attrezzatura?</Label>
-                                    <RadioGroup name="attrezzatura" required>
+                                    <RadioGroup
+                                        name="attrezzatura"
+                                        value={attrezzatura}
+                                        onValueChange={setAttrezzatura}
+                                        required
+                                    >
                                         <div className="flex items-center gap-3">
                                             <RadioGroupItem value="si" id="equip1" />
                                             <Label htmlFor="equip1">Si</Label>
                                         </div>
                                         <div className="flex items-center gap-3">
                                             <RadioGroupItem value="no" id="equip2" />
-                                            <Label htmlFor="equip2">No, devo noleggiarla</Label>
+                                            <Label htmlFor="equip2">No, devo noleggiarla.</Label>
                                         </div>
                                     </RadioGroup>
+
+                                    {attrezzatura === "no" && (
+                                        <div className="mt-4 flex flex-col">
+                                            <div>
+                                                <Label className='text-md font-semibold py-2' htmlFor="altezza">Altezza (cm)</Label>
+                                                <Input
+                                                    className='p-2'
+                                                    type="number"
+                                                    name="altezza"
+                                                    placeholder="Altezza (cm)"
+                                                    value={quantities.altezza}
+                                                    onChange={(e) =>
+                                                        setQuantities((prev) => ({ ...prev, altezza: e.target.value }))
+                                                    }
+                                                    required
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="altezza"
+                                                    value={quantities.altezza}
+                                                />
+                                            </div>
+                                            <div>
+                                                <Label className='text-md font-semibold py-2' htmlFor="peso">Peso (Kg)</Label>
+                                                <Input
+                                                    className='p-2'
+                                                    type="number"
+                                                    name="peso"
+                                                    placeholder="Peso (kg)"
+                                                    value={quantities.peso}
+                                                    onChange={(e) =>
+                                                        setQuantities((prev) => ({ ...prev, peso: e.target.value }))
+                                                    }
+                                                    required
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="peso"
+                                                    value={quantities.peso}
+                                                />
+                                            </div>
+                                            <div>
+                                                <Label className='text-md font-semibold py-2' htmlFor="numero">Numero di Scarpe</Label>
+                                                <Input
+                                                    className='p-2'
+                                                    type="number"
+                                                    name="numero"
+                                                    placeholder="Numero scarpe"
+                                                    value={quantities.numero}
+                                                    onChange={(e) =>
+                                                        setQuantities((prev) => ({ ...prev, numero: e.target.value }))
+                                                    }
+                                                    required
+                                                />
+                                                <input
+                                                    type="hidden"
+                                                    name="numero"
+                                                    value={quantities.numero}
+                                                />
+                                            </div>
+                                        </div>
+                                    )}
+
                                 </div>
                             </fieldset>
 

@@ -1,3 +1,11 @@
+/**
+ * @name AboutPage
+ * @description Provides information about the dive center, including its history, values, and team members.
+ * Features sections with images and text to engage visitors and convey the center's mission and culture.
+ * 
+ * @author Orlifera
+ */
+
 import Banner from '@/components/Banner'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
