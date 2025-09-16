@@ -6,10 +6,13 @@ import { CardProps } from "@/types";
 
 export default function CardComponent({ title, description, src, button, subtitle, link, classname, text }: CardProps) {
     return (
-        <Card className={`relative overflow-hidden rounded-2xl shadow-lg 
-             transition-[flex] duration-500 ease-in-out 
-             lg:flex-[1] lg:hover:flex-[2] group ${classname ? classname : "w-full  h-[38em]"}`}
+        <Card
+            className={`relative overflow-hidden rounded-2xl shadow-lg 
+              transition-[flex] duration-500 ease-in-out 
+              lg:flex-[1] lg:hover:flex-[2] group
+              ${classname ?? "h-[38em]"}`}
         >
+
             {/* Background Image */}
             <Image
                 src={src}

@@ -126,16 +126,11 @@ export default function Home() {
             <Link href="/about">Scopri di più</Link>
           </Button>
         </div>
-        <div className="w-[70%] mx-auto my-8">
-          <video
-            autoPlay
-            loop
-            muted
-            className="rounded-lg w-full"
-          >
-            <source src="/feeldive.mp4" />
+        {/* <div className="w-[70%] mx-auto my-8 z-50">
+          <video autoPlay playsInline className='w-full h-full object-cover ' loop muted>
+            <source src='/129.mp4' type="video/mp4" />
           </video>
-        </div>
+        </div> */}
       </div >
       <div className="w-full  bg-foreground text-primary-foreground ">
         <h1 className="text-5xl font-[900] mx-8 mt-16 mb-1 text-wrap lg:text-justify text-outline-chart-5">

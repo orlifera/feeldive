@@ -37,7 +37,7 @@ export default function page() {
                 social={true}
                 classname='brightness-75'
             />
-            <section>
+            <section id='icon-link'>
                 <h1 className="text-6xl font-[900] mx-8 mt-16 mb-1 text-wrap lg:text-justify text-outline-primary">
                     La nostra storia
                 </h1>
@@ -55,9 +55,9 @@ export default function page() {
                 </div>
                 <div className='p-8'>
                     <Image
-                        src="/8.webp"
+                        src="/6.webp"
                         alt="Immersioni"
-                        width={300}
+                        width={900}
                         height={300}
                         className="flex mx-auto items-center justify-center rounded-lg shadow-lg"
                     />
@@ -73,7 +73,7 @@ export default function page() {
                     </h2>
 
                     <div className="w-[15em] h-1 bg-primary rounded-lg mx-8 mb-4" />
-                    <p className='text-lg font-medium m-8 text-wrap text-white dark:text-white lg:text-justify'>
+                    <p className='text-lg font-medium m-8 text-wrap text-white dark:text-primary lg:text-justify'>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio eius quae iste magni dolore, est qui id molestias dolor tenetur a, unde cumque atque, eaque iure hic porro laudantium non?
                     </p>
                     <Button asChild className='mx-8 mt-4 bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors w-[12em]'>
@@ -81,7 +81,7 @@ export default function page() {
                     </Button>
                 </div>
                 <div className='flex flex-col w-full p-8'>
-                    <div className='grid grid-cols-2 gap-8 justify-between items-center text-white text-lg mt-16'>
+                    <div className='grid grid-cols-2 gap-8 justify-between items-center text-white dark:text-primary text-lg mt-16'>
                         <div>
                             <UsersRound />
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore commodi modi at iure minima odit, quidem excepturi ullam aliquam maxime in laboriosam et quam architecto illo reprehenderit laborum doloremque nobis.

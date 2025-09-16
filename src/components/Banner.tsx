@@ -6,7 +6,7 @@ import { ArrowDown, Facebook, Instagram } from 'lucide-react';
 
 export default function Banner({ video = false, title, subtitle, source, button1 = false, link1, text1, button2 = false, link2, text2, icon = false, social = false, classname }: BannerProps) {
     return (
-        <div className="relative px-2 w-full h-screen flex items-center justify-center text-white">
+        <div className="relative px-2 w-full md:h-screen h-svh flex items-center justify-center text-white">
 
             {video ?
 
@@ -25,7 +25,7 @@ export default function Banner({ video = false, title, subtitle, source, button1
                 </div >}
             {/* Text content */}
             <div className="relative z-20 text-center px-6 max-w-4xl">
-                <h1 className="text-4xl font-extrabold">{title} </h1>
+                <h1 className="text-6xl font-extrabold">{title} </h1>
                 <p className="text-lg w-[70%] m-auto font-light leading-relaxed">
                     {subtitle}
                 </p>

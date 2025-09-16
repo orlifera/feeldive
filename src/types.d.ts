@@ -17,10 +17,17 @@ export type BannerProps = {
 export type CardProps = {
     title: string;
     subtitle?: string;
-    description: string;
+    description?: string;
     src: string;
     button?: boolean;
     link?: string;
     text?: string;
     classname?: string;
+}
+
+export type Dive = {
+    name: string;
+    description: string;
+    difficulty: string;
+    src: string;
 }

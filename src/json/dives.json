@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "Canyon",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater - Advance",
+        "src": "/5.webp"
+    },
+    {
+        "id": 2,
+        "name": "Franata",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater - Advance",
+        "src": "/6.webp"
+    },
+    {
+        "id": 3,
+        "name": "Franata 2",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "Advance - Deep",
+        "src": "/7.webp"
+    },
+    {
+        "id": 4,
+        "name": "Baietta",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater - Advance",
+        "src": "/8.webp"
+    },
+    {
+        "id": 5,
+        "name": "Baietta 2",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater - Advance",
+        "src": "/9.webp"
+    },
+    {
+        "id": 6,
+        "name": "Porcellino",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater",
+        "src": "/10.webp"
+    },
+    {
+        "id": 7,
+        "name": "Secca",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "Advance - Deep",
+        "src": "/12.webp"
+    },
+    {
+        "id": 8,
+        "name": "G4",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater - Advance",
+        "src": "/11.webp"
+    },
+    {
+        "id": 9,
+        "name": "Tubo",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater",
+        "src": "/13.webp"
+    },
+    {
+        "id": 10,
+        "name": "Stedava",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "OpenWater",
+        "src": "/14.webp"
+    },
+    {
+        "id": 11,
+        "name": "Cerboli",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "Advance - Deep",
+        "src": "/15.webp"
+    },
+    {
+        "id": 12,
+        "name": "Porto Azzurro",
+        "description": "Experience the thrill of diving with majestic sharks in their natural habitat.",
+        "difficulty": "Deep",
+        "src": "/16.webp"
+    }
+]
