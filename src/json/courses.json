@@ -1,0 +1,28 @@
+[
+    {
+        "id": "owd",
+        "title": "Open Open Water Diver",
+        "subtitle": "Corso sub",
+        "description": [
+            "Corso di prova",
+            "Corso di prova 2",
+            "Corso di prova 3",
+            "Corso di prova 4"
+        ],
+        "price": "400",
+        "link": "owd",
+        "src": "/owd.webp"
+    },
+    {
+        "id": "adv",
+        "title": "Advanced Open Water",
+        "subtitle": "Corso sub avanzato",
+        "description": [
+            "Corso di prova",
+            "Corso di prova 2"
+        ],
+        "price": "500",
+        "link": "adv",
+        "src": "/adv.webp"
+    }
+]

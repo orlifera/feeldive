@@ -31,3 +31,13 @@ export type Dive = {
     difficulty: string;
     src: string;
 }
+
+export type Course = {
+    id: string;
+    title: string;
+    subtitle: string;
+    description: string[];
+    price: string;
+    link: string;
+    src: string;
+}

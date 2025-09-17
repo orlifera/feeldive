@@ -45,7 +45,7 @@ export default function CardComponent({ title, description, src, button, subtitl
 
                     {button && link && text && (
                         <Button asChild className="mt-2 py-6 px-8 rounded-2xl">
-                            <Link href={link} target="_blank" rel="noopener noreferrer">
+                            <Link href={link} rel="noopener noreferrer">
                                 {text}
                             </Link>
                         </Button>
